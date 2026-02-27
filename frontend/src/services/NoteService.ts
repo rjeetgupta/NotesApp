@@ -1,13 +1,13 @@
 import { AxiosError } from "axios";
 import { axiosInstance } from "@/lib/axios";
-import { IApiResponse, IApiError } from "@/types/api.types";
+import { IApiResponse, IApiError } from "@/types/api.type";
 import {
     INote,
     IPaginatedNotes,
     ICreateNotePayload,
     IUpdateNotePayload,
     INotesQueryParams,
-} from "@/types/note.types";
+} from "@/types/notes.type";
 
 class NoteService {
     private static instance: NoteService;

@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { noteService } from "@/services/noteService";
+import { noteService } from "@/services/NoteService";
 import {
     INote,
     IPaginatedNotes,
     ICreateNotePayload,
     IUpdateNotePayload,
     INotesQueryParams,
-} from "@/types/note.types";
+} from "@/types/notes.type";
 
 // State shape
 interface NoteState {
