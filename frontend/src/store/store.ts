@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import noteReducer from "@/store/noteSlice";
 
 export const store = configureStore({
   reducer: {
-
+    notes: noteReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),
