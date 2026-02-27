@@ -4,6 +4,7 @@ import { useState } from "react";
 import { INote } from "@/types/notes.type";
 import { togglePinNote, deleteNote } from "@/store/noteSlice";
 import ConfirmDialog from "@/components/ui/ConfirmDialog"
+import { useAppDispatch, useAppSelector } from "@/store/hook";
 
 interface NoteCardProps {
   note: INote;
