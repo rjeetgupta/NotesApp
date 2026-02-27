@@ -3,16 +3,16 @@
 import { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { INote, NOTE_COLOR_OPTIONS } from "@/types/note.types";
+import { INote, NOTE_COLOR_OPTIONS } from "@/types/notes.type";
 import {
   createNoteSchema,
   updateNoteSchema,
   CreateNoteFormValues,
-} from "@/validations/note.validations";
-import { useAppDispatch } from "@/store/hooks/useAppDispatch";
-import { useAppSelector } from "@/store/hooks/useAppSelector";
-import { createNote, updateNote } from "@/store/slices/noteSlice";
+} from "@/lib/schema/note.schema";
+
 import Spinner from "@/components/ui/Spinner";
+import { useAppDispatch, useAppSelector } from "@/store/hook";
+import { createNote, updateNote } from "@/store/noteSlice";
 
 interface NoteFormProps {
   editingNote?: INote | null;
