@@ -18,6 +18,10 @@ app.use(
     }),
 );
 
+import noteRouters from "./routes/note.route"
+
+app.use("/api/v1/notes", noteRouters)
+
 app.use(notFoundHandler);
 app.use(globalErrorHandler);
 export default app;

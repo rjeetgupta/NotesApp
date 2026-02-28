@@ -1,12 +1,14 @@
 import type { Request, Response } from "express";
 import { noteService } from "../services/note.services";
 import { ApiResponse } from "../utils/ApiResponse";
-import type {
-    CreateNoteInput,
-    UpdateNoteInput,
-    NoteIdParam,
-    NotesQuery,
+import {
+    type CreateNoteInput,
+    type UpdateNoteInput,
+    type NoteIdParam,
+    type NotesQuery,
+    notesQuerySchema,
 } from "../validators/notes.validator";
+import { asyncHandler } from "../utils/asyncHandler";
 
 class NoteController {
     private static instance: NoteController;
@@ -45,12 +47,12 @@ class NoteController {
     // GET all notes
 
     async getAllNotes(
-        req: Request<{}, {}, {}, NotesQuery>,
+        req: Request,
         res: Response,
     ): Promise<void> {
-        const paginatedNotes = await noteService.getAllNotes(
-            req.query as NotesQuery,
-        );
+        const parsedQuery = notesQuerySchema.parse(req.query);
+
+        const paginatedNotes = await noteService.getAllNotes(parsedQuery);
 
         res.status(200).json(
             ApiResponse.ok(paginatedNotes, "Notes fetched successfully"),

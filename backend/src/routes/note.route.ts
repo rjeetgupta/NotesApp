@@ -10,11 +10,8 @@ import {
 
 const router: Router = Router();
 
-// ─────────────────────────────────────────────────────────────
 // NOTE ROUTES
-// Base path: /api/notes
-// Controllers already wrapped with asyncHandler internally
-// ─────────────────────────────────────────────────────────────
+// Base path: /api/v1/notes
 
 /**
  * GET /api/notes/tags
@@ -53,4 +50,4 @@ router
     .route("/:id/pin")
     .patch(validate(noteIdParamSchema, "params"), noteController.togglePinNote);
 
-export { router };
+export default router;

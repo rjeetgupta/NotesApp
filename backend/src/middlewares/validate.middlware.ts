@@ -16,7 +16,6 @@ const validate = (schema: ZodSchema, target: ValidateTarget = "body") => {
       throw ApiError.badRequest("Validation failed", readableErrors);
     }
 
-    (req as Record<string, unknown>)[target] = result.data;
     next();
   };
 };

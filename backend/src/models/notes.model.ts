@@ -2,15 +2,15 @@ import mongoose, { Schema } from "mongoose";
 import type { INoteDocument } from "../types/notes.types";
 
 const NOTE_COLORS = [
-    "#ffffff",
-    "#fef08a",
-    "#bbf7d0",
-    "#bfdbfe",
-    "#fecaca",
-    "#e9d5ff",
-    "#fed7aa",
-    "#cffafe",
-];
+    "#1A1A24",
+    "#2A2410",
+    "#0F2318",
+    "#0F1A2E",
+    "#2A0F0F",
+    "#1A0F2A",
+    "#2A1A0A",
+    "#0A2020",
+  ];
 
 const NoteSchema = new Schema<INoteDocument>(
     {
