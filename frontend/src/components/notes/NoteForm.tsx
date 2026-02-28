@@ -86,7 +86,7 @@ export default function NoteForm({ editingNote, onClose }: NoteFormProps) {
 
   const onSubmit = async (data: CreateNoteFormValues) => {
     if (isEditing && editingNote) {
-      await dispatch(updateNote({ noteId: editingNote.id, payload: data }));
+      await dispatch(updateNote({ noteId: editingNote._id, payload: data }));
     } else {
       await dispatch(createNote(data));
     }

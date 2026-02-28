@@ -195,12 +195,12 @@ const noteSlice = createSlice({
             .addCase(updateNote.fulfilled, (state, action) => {
                 state.isSubmitting = false;
                 const noteIndex = state.notes.findIndex(
-                    (note) => note.id === action.payload.id,
+                    (note) => note._id === action.payload._id,
                 );
                 if (noteIndex !== -1) {
                     state.notes[noteIndex] = action.payload;
                 }
-                if (state.selectedNote?.id === action.payload.id) {
+                if (state.selectedNote?._id === action.payload._id) {
                     state.selectedNote = action.payload;
                 }
                 state.successMessage = "Note updated successfully";
@@ -219,9 +219,9 @@ const noteSlice = createSlice({
             .addCase(deleteNote.fulfilled, (state, action) => {
                 state.isSubmitting = false;
                 state.notes = state.notes.filter(
-                    (note) => note.id !== action.payload,
+                    (note) => note._id !== action.payload,
                 );
-                if (state.selectedNote?.id === action.payload) {
+                if (state.selectedNote?._id === action.payload) {
                     state.selectedNote = null;
                 }
                 state.successMessage = "Note deleted successfully";
@@ -235,7 +235,7 @@ const noteSlice = createSlice({
         builder
             .addCase(togglePinNote.fulfilled, (state, action) => {
                 const noteIndex = state.notes.findIndex(
-                    (note) => note.id === action.payload.id,
+                    (note) => note._id === action.payload._id,
                 );
                 if (noteIndex !== -1) {
                     state.notes[noteIndex] = action.payload;
