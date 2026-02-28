@@ -13,14 +13,14 @@ export default function Toast() {
 
     useEffect(() => {
         if (!message) return;
-        const timer = setTimeout(() => dispatch(clearMessages()), 2500);
+        const timer = setTimeout(() => dispatch(clearMessages()), 3500);
         return () => clearTimeout(timer);
     }, [message, dispatch]);
 
     if (!message) return null;
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-right-5 fade-in duration-200">
+        <div className="fixed top-14 right-6 z-50 animate-in slide-in-from-right-5 fade-in duration-200">
             <div
                 role="alert"
                 className={`
