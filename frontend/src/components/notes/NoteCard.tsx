@@ -63,7 +63,7 @@ export default function NoteCard({ note, onEdit, animationDelay = 0 }: NoteCardP
               transition-all duration-200
               ${
                 note.isPinned
-                  ? "bg-primary/10 text-primary"
+                  ? "bg-primary/30 text-primary"
                   : "text-muted-foreground hover:bg-muted hover:text-foreground"
               }
             `}
