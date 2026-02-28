@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosError } from "axios";
-import { IApiError } from "@/types/api.types";
+import { IApiError } from "@/types/api.type";
 
 class AxiosClient {
   private static instance: AxiosClient;
@@ -7,7 +7,7 @@ class AxiosClient {
 
   private constructor() {
     this.axiosInstance = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000/api",
+      baseURL: process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:4000/api/v1",
       timeout: 10000,
       headers: {
         "Content-Type": "application/json",

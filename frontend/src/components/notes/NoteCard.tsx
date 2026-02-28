@@ -26,11 +26,12 @@ export default function NoteCard({ note, onEdit, animationDelay = 0 }: NoteCardP
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   const handleTogglePin = () => {
-    dispatch(togglePinNote(note.id));
+    console.log(note)
+    dispatch(togglePinNote(note._id));
   };
 
   const handleDelete = () => {
-    dispatch(deleteNote(note.id));
+    dispatch(deleteNote(note._id));
     setShowDeleteConfirm(false);
   };
 
@@ -85,9 +86,7 @@ export default function NoteCard({ note, onEdit, animationDelay = 0 }: NoteCardP
             {note.tags.slice(0, 4).map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center rounded-md 
-                           bg-primary/10 px-2 py-1 text-xs font-medium 
-                           text-primary"
+                className="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary"
               >
                 #{tag}
               </span>
